@@ -1,12 +1,12 @@
 package com.shaggyhamster.animal.racing.manager;
 
+import com.google.ads.AdView;
 import com.shaggyhamster.animal.racing.activity.MyActivity;
 import com.shaggyhamster.animal.racing.model.scene.*;
 import com.shaggyhamster.animal.racing.util.ConstantsUtil;
 import com.shaggyhamster.animal.racing.util.LevelDifficulty;
 import com.shaggyhamster.animal.racing.util.MathParameter;
 import com.shaggyhamster.animal.racing.util.SceneType;
-import com.google.ads.AdView;
 import org.andengine.engine.handler.timer.ITimerCallback;
 import org.andengine.engine.handler.timer.TimerHandler;
 import org.andengine.ui.IGameInterface;
@@ -119,7 +119,7 @@ public class SceneManager {
         ResourcesManager.getInstance().unloadMenuTextures();
     }
 
-    public void loadGameScene(final LevelDifficulty levelDifficulty, final MathParameter mathParameter) {
+    public void loadGameScene() {
         setScene(loadingScene);
         ResourcesManager.getInstance().unloadGameTypeTextures();
         ResourcesManager.getInstance().getEngine().registerUpdateHandler(new TimerHandler(ConstantsUtil.LOADING_SCENE_TIME, new ITimerCallback() {
@@ -127,7 +127,7 @@ public class SceneManager {
             public void onTimePassed(TimerHandler pTimerHandler) {
                 ResourcesManager.getInstance().getEngine().unregisterUpdateHandler(pTimerHandler);
                 ResourcesManager.getInstance().loadGameResources();
-                gameScene = new GameScene(levelDifficulty, mathParameter);
+                gameScene = new GameScene();
                 setScene(gameScene);
             }
         }));

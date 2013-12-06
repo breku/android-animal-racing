@@ -6,6 +6,8 @@ import com.shaggyhamster.animal.racing.util.ConstantsUtil;
 import com.shaggyhamster.animal.racing.util.SceneType;
 import org.andengine.entity.scene.menu.MenuScene;
 import org.andengine.entity.scene.menu.item.IMenuItem;
+import org.andengine.entity.scene.menu.item.SpriteMenuItem;
+import org.andengine.entity.scene.menu.item.decorator.ScaleMenuItemDecorator;
 import org.andengine.entity.sprite.Sprite;
 
 /**
@@ -21,6 +23,20 @@ public class GameTypeScene extends BaseScene implements MenuScene.IOnMenuItemCli
     public void createScene(Object... objects) {
         init();
         createBackground();
+        createButtons();
+    }
+
+    private void createButtons() {
+        menuScene = new MenuScene(camera);
+        menuScene.setPosition(400, 240);
+        menuScene.setBackgroundEnabled(false);
+        menuScene.buildAnimations();
+
+        menuScene.addMenuItem(new ScaleMenuItemDecorator(new SpriteMenuItem(1, resourcesManager.getPlayButtonTextureRegion(), vertexBufferObjectManager), 1.5f, 1.0f));
+
+        menuScene.setOnMenuItemClickListener(this);
+
+        setChildScene(menuScene);
     }
 
     private void init() {
@@ -47,6 +63,7 @@ public class GameTypeScene extends BaseScene implements MenuScene.IOnMenuItemCli
 
     @Override
     public boolean onMenuItemClicked(MenuScene pMenuScene, IMenuItem pMenuItem, float pMenuItemLocalX, float pMenuItemLocalY) {
-        return false;  //To change body of implemented methods use File | Settings | File Templates.
+        SceneManager.getInstance().loadGameScene();
+        return true;
     }
 }
