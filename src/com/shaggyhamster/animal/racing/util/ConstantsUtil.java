@@ -24,5 +24,4 @@ public class ConstantsUtil implements Constants, LevelConstants {
     public static final String TAG_ENTITY_ATTRIBUTE_TYPE_SHAPE = "shape";
     public static final String TAG_ENTITY = "entity";
 
-
 }
