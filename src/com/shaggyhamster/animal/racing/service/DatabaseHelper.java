@@ -14,7 +14,7 @@ import com.shaggyhamster.animal.racing.util.MathParameter;
  */
 public class DatabaseHelper extends SQLiteOpenHelper {
 
-    private static final String DB_NAME = "myDB_brain_watt";
+    private static final String DB_NAME = "myDB_animal_racing";
     private static final String TABLE_NAME = "HIGH_SCORES";
     private static final String COLUMN_ID = "ID";
     private static final String COLUMN_LEVEL_DIFFICULTY = "LEVEL_DIFFICULTY";
