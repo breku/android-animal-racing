@@ -1,11 +1,11 @@
-package com.brainwatt.activity;
+package com.shaggyhamster.animal.racing.activity;
 
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.widget.FrameLayout;
-import com.brainwatt.manager.ResourcesManager;
-import com.brainwatt.manager.SceneManager;
-import com.brainwatt.util.ConstantsUtil;
+import com.shaggyhamster.animal.racing.manager.ResourcesManager;
+import com.shaggyhamster.animal.racing.manager.SceneManager;
+import com.shaggyhamster.animal.racing.util.ConstantsUtil;
 import com.google.ads.AdRequest;
 import com.google.ads.AdSize;
 import com.google.ads.AdView;
