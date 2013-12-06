@@ -1,6 +1,7 @@
 package com.shaggyhamster.animal.racing.manager;
 
 import android.graphics.Color;
+import com.shaggyhamster.animal.racing.util.AnimalType;
 import org.andengine.audio.sound.Sound;
 import org.andengine.audio.sound.SoundFactory;
 import org.andengine.engine.Engine;
@@ -42,7 +43,7 @@ public class ResourcesManager {
 
     // Game
     private ITextureRegion backgroundGameTextureRegion;
-    private ITiledTextureRegion animalTiledTextureRegion;
+    private ITiledTextureRegion horseTiledTextureRegion;
 
     // Splash
     private ITextureRegion splashTextureRegion;
@@ -245,12 +246,13 @@ public class ResourcesManager {
 
         backgroundGameTextureRegion = BitmapTextureAtlasTextureRegionFactory.createFromAsset(gameBackgroundTextureAtlas, activity, "background.png");
 
-        animalTiledTextureRegion = BitmapTextureAtlasTextureRegionFactory.createTiledFromAsset(gameTextureAtlas, activity, "cat.png", 5, 4);
+        horseTiledTextureRegion = BitmapTextureAtlasTextureRegionFactory.createTiledFromAsset(gameTextureAtlas, activity, "horse2.png", 5, 3);
 
         try {
             gameTextureAtlas.build(new BlackPawnTextureAtlasBuilder<IBitmapTextureAtlasSource, BitmapTextureAtlas>(0, 0, 1));
-            gameBackgroundTextureAtlas.build(new BlackPawnTextureAtlasBuilder<IBitmapTextureAtlasSource, BitmapTextureAtlas>(0, 0, 1));
             gameTextureAtlas.load();
+
+            gameBackgroundTextureAtlas.build(new BlackPawnTextureAtlasBuilder<IBitmapTextureAtlasSource, BitmapTextureAtlas>(0, 0, 1));
             gameBackgroundTextureAtlas.load();
         } catch (ITextureAtlasBuilder.TextureAtlasBuilderException e) {
             e.printStackTrace();
@@ -498,7 +500,13 @@ public class ResourcesManager {
         return wrongClickSound;
     }
 
-    public ITiledTextureRegion getAnimalTiledTextureRegion() {
-        return animalTiledTextureRegion;
+    public ITiledTextureRegion getAnimalTiledTextureRegionFor(AnimalType animalType) {
+        switch (animalType) {
+            case HORSE:
+                return horseTiledTextureRegion;
+            default:
+                throw new UnsupportedOperationException();
+        }
+
     }
 }

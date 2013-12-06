@@ -17,5 +17,12 @@ public class ConstantsUtil implements Constants, LevelConstants {
 
     public static final String MY_AD_UNIT_ID = "ca-app-pub-6574392848136998/3023914060";
 
+    public static final String TAG_ENTITY_ATTRIBUTE_X = "x";
+    public static final String TAG_ENTITY_ATTRIBUTE_Y = "y";
+    public static final String TAG_ENTITY_ATTRIBUTE_TYPE = "type";
+
+    public static final String TAG_ENTITY_ATTRIBUTE_TYPE_SHAPE = "shape";
+    public static final String TAG_ENTITY = "entity";
+
 
 }
